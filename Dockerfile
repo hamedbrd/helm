@@ -21,6 +21,8 @@ RUN apk add --no-cache ca-certificates \
     # Init version 2 helm:
     helm init --client-only
 
+RUN mkdir -p /usr/lib/python3.9/site-packages
+RUN cp -r /usr/lib/python3.10/site-packages/* /usr/lib/python3.9/site-packages/
 ENV PYTHONPATH "/usr/lib/python3.8/site-packages/"
 
 COPY . /usr/src/
